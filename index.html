@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROWN</title>
+    <meta name="store-url" content="https://apps.apple.com/us/app/caliente-club/id6503647910">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        iframe {
+            border: none;
+            width: 100vw;
+            height: 100vh;
+            min-width: 320px;
+            min-height: 480px;
+        }
+        .open-button {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 3px 83px;
+            background-color: #8483830d;
+            color: #ffd50000;;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 78px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="https://grhr55.github.io/CROWN/" title="Трансляция сайта"></iframe>
+    <button h class="open-button" id="storeButton" type="button" onclick="openStore(event)">PLAY NOW!!</button>
+
+    <script>
+        function openStore(event) {
+            event.preventDefault(); // Предотвращает стандартное поведение кнопки
+            var storeUrl = document.querySelector('meta[name="store-url"]').getAttribute('content');
+            if (!storeUrl) {
+                console.error('Store URL is missing or invalid.');
+                return;
+            }
+            window.open(storeUrl, '_blank');
+        }
+
+        function showStoreButton() {
+            document.getElementById('storeButton').style.display = 'block';
+        }
+
+        function hideStoreButton() {
+            document.getElementById('storeButton').style.display = 'none';
+        }
+
+        // Показываем кнопку через 20 секунд после загрузки
+        setTimeout(showStoreButton, 10000);
+    </script>
+</body>
+</html>
